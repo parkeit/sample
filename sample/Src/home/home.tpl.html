@@ -1,0 +1,51 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="page-header">
+                <h1>Parks & Reserves</h1>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Filter by Amenities</h3>
+                        </div> 
+                        <div class="panel-body">
+                            <label class="col-md-6" ng-repeat="tag in vm.tags">
+                                <input type="checkbox" ng-click="vm.changeSelectedAmenities(tag.Id)">
+                                <span>    {{tag.Name}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Parks</h3>
+                        </div>
+                        <table class="table">
+                            <tbody>
+                                <tr ng-repeat="park in vm.parks | filter:vm.amenityFilter">
+                                    <td>
+                                        <span ng-if="park.Image">
+                                            <img style="max-height:35px" src="{{park.Image}}" />
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {{park.Name}}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-default btn-sm pull-right">
+                                            <a target="_blank" href="https://bprwebtrac.cityofboise.org/wbwsc/webtrac.wsc/wbsearch.html?wbsi=b88c36d4-d990-899e-e411-9550c588c2a3&xxmod=fr&xxblockstodisplay=7&xxlength=04%3A00&xxbegintime=25200">Reserve</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
